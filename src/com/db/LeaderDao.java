@@ -14,14 +14,14 @@ public class LeaderDao {
     }
 
     private String searchMassage(String name) {
-        String attribute = null;
+        String remark = null;
         String sql = String.format("select * from user where name='%s'", name);
         rs = db.selectSqlDate(sql);
         try {
             while (rs.next()) {
-            	attribute = rs.getString("attribute");
+            	remark = rs.getString("remark");
             }
-            return attribute;
+            return remark;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -31,7 +31,7 @@ public class LeaderDao {
     }
 
     private String[][] ArrayListToArray(ArrayList<ArrayList<String>> data){
-        String[][] allData = new String[data.size()][20];
+        String[][] allData = new String[data.size()][9];
         for (int i=0;i<data.size();i++){
             ArrayList<String> al = data.get(i);
             allData[i][0] = String.valueOf(i+1);
@@ -51,10 +51,10 @@ public class LeaderDao {
     }
 
     public String[][] getData(String name) {
-        String attribute = searchMassage(name);
-        String sql = String.format("select user.user_name,institute.institute,form.time,form.hb,form.fr,form.ky," +
+        String remark = searchMassage(name);
+        String sql = String.format("select user.user_name,institute.institute,form.time,form.hb,form.fr,form.ky,form.fx," +
                 "form.tw from form,institute,user where form.institute_id=institute.id and form.user_id=user.id " +
-                "and form.attribute='%s'", attribute);
+                "and form.remark='%s'", remark);
         rs = db.selectSqlDate(sql);
         ArrayList<ArrayList<String>> data = new ArrayList<>();
         try {
@@ -66,6 +66,7 @@ public class LeaderDao {
                 al.add(getYesNo(rs.getString("hb")));
                 al.add(getYesNo(rs.getString("fr")));
                 al.add(getYesNo(rs.getString("ky")));
+                al.add(getYesNo(rs.getString("fx")));
                 al.add(rs.getString("tw"));
                 data.add(al);
             }

@@ -23,7 +23,6 @@ public class LeaderPanel extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        //this.add(reEnter, BorderLayout.NORTH);
         this.add(buttonPanel, BorderLayout.SOUTH);
         this.add(sp, BorderLayout.CENTER);
     }
@@ -41,7 +40,7 @@ public class LeaderPanel extends JFrame implements ActionListener {
     }
 
     private void tableData() {
-        String[] titles = {"序号", "姓名", "学院", "时间", "是否湖北籍", "是否存在有发热", "近14天是否接触过感染者","体温"};
+        String[] titles = {"序号", "姓名", "学院", "上报时间", "是否湖北籍", "是否存在有发热", "近14天是否接触过感染者", "是否准备今日返校","体温"};
         String[][] data = td.getData(name);
         JTable table =new JTable(data,titles);
         sp=new JScrollPane(table);

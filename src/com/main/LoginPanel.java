@@ -13,7 +13,7 @@ public class LoginPanel extends JFrame implements ActionListener {
     private JTextField nameField;
     private JPanel loginPanel, passwordPanel, namePanel, checkPanel;
     private LoginDao thisLoginDao;
-    private JRadioButton studentLogin, teacherLogin;
+    private JRadioButton studentLogin, teacherLogin, leaderLogin;
 
     public LoginPanel() {
         init();
@@ -36,8 +36,10 @@ public class LoginPanel extends JFrame implements ActionListener {
         ButtonGroup bg = new ButtonGroup();
         studentLogin = new JRadioButton("学生登录", true);
         teacherLogin = new JRadioButton("学院负责人登录");
+        leaderLogin = new JRadioButton("学院负责人登录");
         bg.add(studentLogin);
         bg.add(teacherLogin);
+        bg.add(leaderLogin);
         login = new JButton("登录");
         cancel = new JButton("退出");
         JLabel name = new JLabel("用户名");
@@ -56,6 +58,7 @@ public class LoginPanel extends JFrame implements ActionListener {
         checkPanel = new JPanel();
         checkPanel.add(studentLogin);
         checkPanel.add(teacherLogin);
+        checkPanel.add(leaderLogin);
     }
 
     public void addActionListener() {
@@ -73,6 +76,8 @@ public class LoginPanel extends JFrame implements ActionListener {
                 type = "2";
             } else if (teacherLogin.isSelected()) {
                 type = "1";
+            }else if (leaderLogin.isSelected()) {
+                type = "3";
             }
             if (thisLoginDao.LoginCheck(name, password, type)) {
                 if (type.equals("2")) {
@@ -80,6 +85,9 @@ public class LoginPanel extends JFrame implements ActionListener {
                     this.setVisible(false);
                 } else if (type.equals("1")) {
                     new TeacherPanel(name);
+                    this.setVisible(false);
+                }else if (type.equals("3")) {
+                    new LeaderPanel(name);
                     this.setVisible(false);
                 }
             } else {

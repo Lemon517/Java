@@ -28,7 +28,7 @@ public class TeachDao {
     }
 
     private String[][] ArrayListToArray(ArrayList<ArrayList<String>> data){
-        String[][] allData = new String[data.size()][8];
+        String[][] allData = new String[data.size()][12];
         for (int i=0;i<data.size();i++){
             ArrayList<String> al = data.get(i);
             allData[i][0] = String.valueOf(i+1);
@@ -49,8 +49,8 @@ public class TeachDao {
 
     public String[][] getData(String name) {
         String institute_id = searchMassage(name);
-        String sql = String.format("select user.user_name,institute.institute,form.time,form.hb,form.fr,form.ky," +
-                "form.tw from form,institute,user where form.institute_id=institute.id and form.user_id=user.id " +
+        String sql = String.format("select user.user_name,institute.institute,form.class,form.time,form.hb,form.fr,form.ky,form.fx," +
+                "form.tw,form.teacher,form.phone from form,institute,user where form.institute_id=institute.id and form.user_id=user.id " +
                 "and form.institute_id='%s'", institute_id);
         rs = db.selectSqlDate(sql);
         ArrayList<ArrayList<String>> data = new ArrayList<>();
@@ -59,11 +59,15 @@ public class TeachDao {
                 ArrayList<String> al = new ArrayList<>();
                 al.add(rs.getString("user_name"));
                 al.add(rs.getString("institute"));
+                al.add(rs.getString("class"));
                 al.add(rs.getString("time"));
                 al.add(getYesNo(rs.getString("hb")));
                 al.add(getYesNo(rs.getString("fr")));
                 al.add(getYesNo(rs.getString("ky")));
+                al.add(getYesNo(rs.getString("fx")));
                 al.add(rs.getString("tw"));
+                al.add(rs.getString("teacher"));
+                al.add(rs.getString("phone"));
                 data.add(al);
             }
             return ArrayListToArray(data);
