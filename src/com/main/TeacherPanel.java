@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class TeacherPanel extends JFrame implements ActionListener {
     private JButton reEnter;
     private JPanel buttonPanel;
-    private JButton ok, quit;
+    private JButton ok, quit, delete;
     private TeachDao td;
     private JScrollPane sp;
     private String name;
