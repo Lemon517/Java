@@ -31,7 +31,7 @@ public class LeaderPanel extends JFrame implements ActionListener {
         td = new LeaderDao();
         buttonPanel = new JPanel();
         reEnter = new JButton("刷新当前数据");
-        out = new JButton("导出数据");
+        out = new JButton("导出");
         quit = new JButton("退出");
         buttonPanel.add(reEnter);
         buttonPanel.add(quit);
