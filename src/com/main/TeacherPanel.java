@@ -34,7 +34,6 @@ public class TeacherPanel extends JFrame implements ActionListener {
         reEnter = new JButton("刷新当前数据");
         ok = new JButton("提交");
         quit = new JButton("退出");
-        //delete = new JButton("删除");
         buttonPanel.add(reEnter);
         buttonPanel.add(ok);
         buttonPanel.add(quit);
