@@ -1,4 +1,4 @@
-package com.main;
+﻿package com.main;
 import com.db.LeaderDao;
 
 import javax.swing.*;
@@ -30,7 +30,7 @@ public class LeaderPanel extends JFrame implements ActionListener {
     public void init() {
         td = new LeaderDao();
         buttonPanel = new JPanel();
-        reEnter = new JButton("刷新当前数据");
+        reEnter = new JButton("刷新当前提交数据");
         out = new JButton("导出");
         quit = new JButton("退出");
         buttonPanel.add(reEnter);

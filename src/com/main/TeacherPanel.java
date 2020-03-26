@@ -1,4 +1,4 @@
-package com.main;
+﻿package com.main;
 
 import com.db.TeachDao;
 
@@ -31,7 +31,7 @@ public class TeacherPanel extends JFrame implements ActionListener {
     public void init() {
         td = new TeachDao();
         buttonPanel = new JPanel();
-        reEnter = new JButton("刷新当前数据");
+        reEnter = new JButton("刷新当前提交数据");
         ok = new JButton("提交");
         quit = new JButton("退出");
         buttonPanel.add(reEnter);

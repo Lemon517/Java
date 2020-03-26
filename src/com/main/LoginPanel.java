@@ -1,4 +1,4 @@
-package com.main;
+﻿package com.main;
 
 import com.db.LoginDao;
 
@@ -91,7 +91,7 @@ public class LoginPanel extends JFrame implements ActionListener {
                     this.setVisible(false);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "密码或用户名错误", "密码错误",
+                JOptionPane.showMessageDialog(null, "密码或用户名错误，请重新输入", "密码错误",
                         JOptionPane.WARNING_MESSAGE);
             }
         } else if (e.getActionCommand().equals(cancel.getActionCommand())) {

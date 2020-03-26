@@ -1,4 +1,4 @@
-package com.main;
+﻿package com.main;
 
 import com.db.InputData;
 
@@ -68,7 +68,7 @@ public class StudentPanel extends JFrame implements ActionListener {
         panel[5].add(ky_y);
         panel[5].add(ky_n);
         
-        fx = new JLabel("是否准备今日返校");
+        fx = new JLabel("是否今日返校");
         fx_g = new ButtonGroup();
         fx_n = new JRadioButton("否", true);
         fx_y = new JRadioButton("是");
@@ -126,7 +126,7 @@ public class StudentPanel extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "信息已上报成功", "成功",JOptionPane.INFORMATION_MESSAGE);
 
             }else{
-                JOptionPane.showMessageDialog(null, "请补全信息再提交", "失败",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "请补全信息提交", "失败",JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getActionCommand().equals(quit.getActionCommand())) {
             System.exit(0);
